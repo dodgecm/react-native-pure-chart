@@ -8,7 +8,7 @@ export default class ColumnChart extends Component {
   constructor (props) {
     super(props)
     let defaultGap = this.props.defaultColumnWidth + this.props.defaultColumnMargin
-    let newState = initData(this.props.data, this.props.height, defaultGap, this.props.numberOfYAxisGuideLine)
+    let newState = initData(this.props.data, this.props.height, defaultGap, this.props.numberOfYAxisGuideLine, this.props.customGuideArray)
     this.state = {
       sortedData: newState.sortedData,
       max: newState.max,
@@ -26,7 +26,7 @@ export default class ColumnChart extends Component {
     if (nextProps.data !== this.props.data) {
       this.setState(Object.assign({
         fadeAnim: new Animated.Value(0)
-      }, initData(nextProps.data, this.props.height, this.state.gap, this.props.numberOfYAxisGuideLine)), () => {
+      }, initData(nextProps.data, this.props.height, this.state.gap, this.props.numberOfYAxisGuideLine, this.props.customGuideArray)), () => {
         Animated.timing(this.state.fadeAnim, { toValue: 1, easing: Easing.bounce, duration: 1000, useNativeDriver: true }).start()
       })
     }
@@ -210,4 +210,5 @@ ColumnChart.defaultProps = {
   xAxisLabelInterval: 1,
   yAxisValueFormatter: value => value,
   yAxisLabelWidth: 33,
+  customGuideArray: null,
 }
