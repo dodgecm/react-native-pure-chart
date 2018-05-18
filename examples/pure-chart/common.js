@@ -222,7 +222,7 @@ export const drawYAxis = (color = '#e0e0e0') => {
   )
 }
 
-export const drawYAxisLabels = (arr, height, minValue, color = '#000000') => {
+export const drawYAxisLabels = (arr, height, minValue, color = '#000000', formatter) => {
   return (
     <View style={{
       width: 33,
@@ -251,7 +251,7 @@ export const drawYAxisLabels = (arr, height, minValue, color = '#000000') => {
               bottom: v[1] - 5,
               position: 'absolute'
             }}>
-            <Text style={{fontSize: 11, color: color}}>{v[0]}</Text>
+            <Text style={{fontSize: 11, color: color}}>{formatter ? formatter(v[0]) : v[0]}</Text>
           </View>
         )
       })}
