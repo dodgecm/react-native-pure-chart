@@ -320,7 +320,7 @@ class LineChart extends React.Component {
                 </View>
 
                 {drawXAxis(this.props.xAxisColor)}
-                {drawXAxisLabels(this.state.sortedData[0].data, this.props.gap, this.props.labelColor)}
+                {drawXAxisLabels(this.state.sortedData[0].data, this.props.gap, this.props.labelColor, this.props.xAxisLabelInterval)}
               </View>
 
             </ScrollView>
@@ -342,6 +342,7 @@ LineChart.defaultProps = {
   onPointClick: (point) => {
 
   },
+  xAxisLabelInterval: 2,
   numberOfYAxisGuideLine: 5
 }
 

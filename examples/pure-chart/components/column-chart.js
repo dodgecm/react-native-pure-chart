@@ -137,7 +137,7 @@ export default class ColumnChart extends Component {
               </View>
               {drawXAxis(this.props.xAxisColor)}
               <View style={{ marginLeft: this.props.defaultColumnWidth / 2 }}>
-                {drawXAxisLabels(this.state.sortedData[0].data, this.state.gap, this.props.labelColor)}
+                {drawXAxisLabels(this.state.sortedData[0].data, this.state.gap, this.props.labelColor, this.props.xAxisLabelInterval)}
               </View>
             </View>
             {this.drawTooltip(this.state.selectedIndex)}
@@ -206,5 +206,6 @@ ColumnChart.defaultProps = {
   defaultColumnWidth: 40,
   defaultColumnMargin: 20,
   primaryColor: '#297AB1',
-  highlightColor: 'red'
+  highlightColor: 'red',
+  xAxisLabelInterval: 1,
 }

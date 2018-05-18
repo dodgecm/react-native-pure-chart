@@ -312,7 +312,8 @@ export const drawXAxis = (color = '#e0e0e0') => {
     }} />
   )
 }
-export const drawXAxisLabels = (sortedData, gap, color = '#000000') => {
+export const drawXAxisLabels = (sortedData, gap, color = '#000000', interval = 2) => {
+  const intervalAwareGap = gap * interval / 2
   return (
     <View style={{
       width: '100%',
@@ -321,13 +322,13 @@ export const drawXAxisLabels = (sortedData, gap, color = '#000000') => {
     }}>
       {sortedData.map((data, i) => {
         // if (data[3] && i % 2 === 1) {
-        if (data['x'] && i % 2 === 1) {
+        if (data['x'] && i % interval === Math.floor(interval / 2)) {
           return (
             <View key={'label' + i} style={{
               position: 'absolute',
               // left: data[0] - gap / 2,
-              left: data['gap'] - gap / 2,
-              width: gap,
+              left: data['gap'] - intervalAwareGap / 2,
+              width: intervalAwareGap,
               alignItems: 'center'
             }}>
               <Text style={{fontSize: 9, color: color}}>
