@@ -222,10 +222,10 @@ export const drawYAxis = (color = '#e0e0e0') => {
   )
 }
 
-export const drawYAxisLabels = (arr, height, minValue, color = '#000000', formatter) => {
+export const drawYAxisLabels = (arr, width, height, minValue, color = '#000000', formatter) => {
   return (
     <View style={{
-      width: 33,
+      width: width,
       height: height,
       justifyContent: 'flex-end',
       alignItems: 'flex-end',

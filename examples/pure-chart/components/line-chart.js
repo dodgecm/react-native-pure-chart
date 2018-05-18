@@ -288,7 +288,7 @@ class LineChart extends React.Component {
           backgroundColor: this.props.backgroundColor
         }])}>
           <View style={styles.yAxisLabelsWrapper}>
-            {drawYAxisLabels(this.state.guideArray, this.props.height + 20, this.props.minValue, this.props.labelColor, this.props.yAxisValueFormatter)}
+            {drawYAxisLabels(this.state.guideArray, this.props.yAxisLabelWidth, this.props.height + 20, this.props.minValue, this.props.labelColor, this.props.yAxisValueFormatter)}
 
           </View>
 
@@ -344,6 +344,7 @@ LineChart.defaultProps = {
   },
   xAxisLabelInterval: 2,
   yAxisValueFormatter: value => value,
+  yAxisLabelWidth: 33,
   numberOfYAxisGuideLine: 5
 }
 
