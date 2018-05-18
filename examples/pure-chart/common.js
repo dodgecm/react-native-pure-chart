@@ -251,7 +251,7 @@ export const drawYAxisLabels = (arr, width, height, minValue, color = '#000000',
               bottom: v[1] - 5,
               position: 'absolute'
             }}>
-            <Text style={{fontSize: 11, color: color}}>{formatter ? formatter(v[0]) : v[0]}</Text>
+            <Text style={{fontSize: 11, color: color}} numberOfLines={1}>{formatter ? formatter(v[0]) : v[0]}</Text>
           </View>
         )
       })}
